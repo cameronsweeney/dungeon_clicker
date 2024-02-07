@@ -1,0 +1,100 @@
+{
+    "simulation_parameters": {
+        "time_steps": 200
+    },
+    "initial_resource_levels": {
+        "CO2": 1000,
+        "O2": 1000
+    },
+    "species": [
+      {
+        "name": "Algae",
+        "consumes": ["CO2"],
+        "produces": ["O2"],
+        "prey": [],
+        "initial_population": 10,
+        "growth_rate": 1.5
+      },
+      {
+        "name": "Herbivorous Fish",
+        "consumes": ["O2"],
+        "produces": ["CO2"],
+        "prey": ["Algae", "Small Plants"],
+        "initial_population": 5,
+        "growth_rate": 1.2
+      },
+      {
+        "name": "Small Crustaceans",
+        "consumes": ["O2"],
+        "produces": ["CO2"],
+        "prey": ["Algae"],
+        "initial_population": 8,
+        "growth_rate": 1.3
+      },
+      {
+        "name": "Cave Beetles",
+        "consumes": ["O2"],
+        "produces": ["CO2"],
+        "prey": ["Small Crustaceans", "Mushrooms"],
+        "initial_population": 5,
+        "growth_rate": 1.2
+      },
+      {
+        "name": "Small Plants",
+        "consumes": ["CO2"],
+        "produces": ["O2"],
+        "prey": [],
+        "initial_population": 7,
+        "growth_rate": 1.1
+      },
+      {
+        "name": "Large Fish",
+        "consumes": ["O2"],
+        "produces": ["CO2"],
+        "prey": ["Herbivorous Fish", "Small Crustaceans"],
+        "initial_population": 3,
+        "growth_rate": 1.2
+      },
+      {
+        "name": "Water Snakes",
+        "consumes": ["O2"],
+        "produces": ["CO2"],
+        "prey": ["Large Fish", "Herbivorous Fish"],
+        "initial_population": 2,
+        "growth_rate": 1.4
+      },
+      {
+        "name": "Mushrooms",
+        "consumes": ["O2"],
+        "produces": ["CO2"],
+        "prey": [],
+        "initial_population": 15,
+        "growth_rate": 1.2
+      },
+      {
+        "name": "Venomous Spiders",
+        "consumes": ["O2"],
+        "produces": ["CO2"],
+        "prey": ["Cave Beetles", "Small Crustaceans"],
+        "initial_population": 4,
+        "growth_rate": 1.3
+      },
+      {
+        "name": "Bat Colonies",
+        "consumes": ["O2"],
+        "produces": ["CO2"],
+        "prey": ["Venomous Spiders", "Water Snakes"],
+        "initial_population": 1,
+        "growth_rate": 1.1
+      },
+      {
+        "name": "Fungal Golems",
+        "consumes": ["O2"],
+        "produces": ["CO2"],
+        "prey": ["Small Plants", "Mushrooms"],
+        "initial_population": 1,
+        "growth_rate": 1.05
+      }
+    ]
+  }
+  
