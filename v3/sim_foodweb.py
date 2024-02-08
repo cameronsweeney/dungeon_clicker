@@ -39,7 +39,7 @@ def run_one_simulation(species_data, initial_resource_levels, simulation_paramet
         ## everyone breathes: update gas / resource levels
         for resource in resource_levels:
             # calculate sum of resource consumed
-
+            pass
 
             # calculate sum of resource produced
             # update resource_levels
