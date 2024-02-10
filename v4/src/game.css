@@ -1,0 +1,29 @@
+#gameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  #dungeonMap {
+    width: 60%;
+    height: 400px;
+    background-color: #eee; /* Placeholder for the map */
+    margin-bottom: 20px;
+  }
+  
+  #statsContainer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+  
+  #resourceLevels, #populationLevels {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #resourceLevels div, #populationLevels div {
+    margin: 10px 0;
+  }
+  
