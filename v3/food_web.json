@@ -13,6 +13,7 @@
         "produces": ["O2"],
         "prey": [],
         "initial_population": 10,
+        "breathe_rate": 1,
         "growth_rate": 1.5
       },
       {
@@ -21,6 +22,7 @@
         "produces": ["CO2"],
         "prey": ["Algae", "Small Plants"],
         "initial_population": 5,
+        "breathe_rate": 1,
         "growth_rate": 1.2
       },
       {
@@ -29,6 +31,7 @@
         "produces": ["CO2"],
         "prey": ["Algae"],
         "initial_population": 8,
+        "breathe_rate": 1,
         "growth_rate": 1.3
       },
       {
@@ -37,6 +40,7 @@
         "produces": ["CO2"],
         "prey": ["Small Crustaceans", "Mushrooms"],
         "initial_population": 5,
+        "breathe_rate": 1,
         "growth_rate": 1.2
       },
       {
@@ -45,6 +49,7 @@
         "produces": ["O2"],
         "prey": [],
         "initial_population": 7,
+        "breathe_rate": 1,
         "growth_rate": 1.1
       },
       {
@@ -53,6 +58,7 @@
         "produces": ["CO2"],
         "prey": ["Herbivorous Fish", "Small Crustaceans"],
         "initial_population": 3,
+        "breathe_rate": 1,
         "growth_rate": 1.2
       },
       {
@@ -61,6 +67,7 @@
         "produces": ["CO2"],
         "prey": ["Large Fish", "Herbivorous Fish"],
         "initial_population": 2,
+        "breathe_rate": 1,
         "growth_rate": 1.4
       },
       {
@@ -69,6 +76,7 @@
         "produces": ["CO2"],
         "prey": [],
         "initial_population": 15,
+        "breathe_rate": 1,
         "growth_rate": 1.2
       },
       {
@@ -77,6 +85,7 @@
         "produces": ["CO2"],
         "prey": ["Cave Beetles", "Small Crustaceans"],
         "initial_population": 4,
+        "breathe_rate": 1,
         "growth_rate": 1.3
       },
       {
@@ -85,6 +94,7 @@
         "produces": ["CO2"],
         "prey": ["Venomous Spiders", "Water Snakes"],
         "initial_population": 1,
+        "breathe_rate": 1,
         "growth_rate": 1.1
       },
       {
@@ -93,6 +103,7 @@
         "produces": ["CO2"],
         "prey": ["Small Plants", "Mushrooms"],
         "initial_population": 1,
+        "breathe_rate": 1,
         "growth_rate": 1.05
       }
     ]

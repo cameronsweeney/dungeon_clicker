@@ -14,7 +14,42 @@ def load_simulation_from_food_web(food_web):
     simulation_parameters = food_web['simulation_parameters']
     return species_data, initial_resource_levels, simulation_parameters
 
+def calculate_resource_consumption_and_production(population_levels, species_data, resource):
+    total_consumption = 0
+    total_production = 0
+    # Iterate over each species in the food_web
+    for species in species_data:
+        # Get the current population of the species
+        population = population_levels.get(species['name'], 0)
 
+        # Check if the species consumes the specified resource
+        if resource in species['consumes']:
+            total_consumption += population * species['breathe_rate']
+        if resource in species['produces']:
+            total_production += population * species['breathe_rate']
+
+    return total_production - total_consumption
+
+def calculate_predation_effects(population_levels, species_data):
+    # Initialize a dictionary to keep track of how much each species eats and is eaten
+    consumption = {species['name']: 0 for species in species_data}
+    
+    # Iterate over each species to calculate consumption based on predation
+    for predator in species_data:
+        predator_name = predator['name']
+        predator_population = population_levels[predator_name]
+        num_prey = len(predator['prey'])
+        
+        # Only proceed if the predator has prey
+        if num_prey > 0:
+            # Calculate the amount of prey eaten per prey species by this predator
+            prey_consumed_per_species = predator_population / num_prey
+            
+            for prey_name in predator['prey']:
+                # Update the 'eaten' count for the prey
+                consumption[prey_name] += prey_consumed_per_species
+    
+    return consumption
 
 ## function: apply logistic growth to population
 def apply_logistic_growth(k, N, r):
@@ -28,6 +63,7 @@ def run_one_simulation(species_data, initial_resource_levels, simulation_paramet
 
     # Initialize populations and resource levels
     population_levels = {species['name']: species['initial_population'] for species in species_data}
+    growth_rates = {species['name']: species['growth_rate'] for species in species_data}
     resource_levels = initial_resource_levels.copy()
     print(resource_levels)
 
@@ -37,14 +73,21 @@ def run_one_simulation(species_data, initial_resource_levels, simulation_paramet
     
     for current_time_step in range(time_steps):
         ## everyone breathes: update gas / resource levels
-        for resource in resource_levels:
-            # calculate sum of resource consumed
-            pass
-
-            # calculate sum of resource produced
-            # update resource_levels
-
+        for resource_name in resource_levels.items():
+            # calculate change in resource (+ produced, - consumed)
+            resource_levels[resource_name] += calculate_resource_consumption_and_production(population_levels, species_data, resource_name)
+        
+        consumption = calculate_predation_effects(population_levels, species_data)
+        
         ## everyone eats & reproduces: update population levels
+        for species_name in species_data:
+            population_levels[species_name] -= consumption[species_name]
+            ## eat other species
+
+            ## calculate carrying capacity
+            ## recalculate growth rate
+
+            ## reproduce
 
 ### utility function: judgment of outcomes based on initial simulation parameters
     #### check & score every step -> crash after 10 turns > crash after 5
